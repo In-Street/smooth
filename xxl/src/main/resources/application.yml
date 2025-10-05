@@ -1,0 +1,45 @@
+server:
+  port: 9090
+spring:
+  application.name: job
+  profiles.active: dev
+
+  #在实现了 implements WebMvcConfigurer接口时，此配置是无效的
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+#优雅停机 访问： /actuator/shutdown
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: shutdown
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8080/self-job
+    # 执行器通讯TOKEN [选填]：非空时启用
+    accessToken:
+    executor:
+      # 执行器AppName [选填]：执行器心跳注册分组依据；为空则关闭自动注册
+      appname: magic-xxl
+      # 执行器注册 [选填]：优先使用该配置作为注册地址，为空时使用内嵌服务 ”IP:PORT“ 作为注册地址
+      address:
+      ip:
+      # 执行器端口号 [选填]：小于等于0则自动获取；默认端口为9999，单机部署多个执行器时，注意要配置不同执行器端口；
+      port: 9999
+      # 执行器运行日志文件存储磁盘路径 [选填] ：需要对该路径拥有读写权限
+      logpath: /Users/chengyufei/Downloads/project/self/data/Logs/jobhandler
+      # 执行器日志文件保存天数 [选填] ： 过期日志自动清理, 限制值大于等于3时生效; 否则, 如-1, 关闭自动清理功能
+      logretentiondays: 1
+
