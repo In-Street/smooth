@@ -1,0 +1,14 @@
+### 普通消息
+GET {{url}}/mq/send-simple
+Accept: */*
+Cache-Control: no-cache
+
+### 标签消息
+GET {{url}}/mq/send-tag
+Accept: */*
+Cache-Control: no-cache
+
+### 对象消息
+GET {{url}}/mq/send-order
+Accept: */*
+Cache-Control: no-cache

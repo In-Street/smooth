@@ -11,6 +11,7 @@
     <modules>
         <module>jdk-feature</module>
         <module>xxl</module>
+        <module>mq</module>
     </modules>
 
     <parent>

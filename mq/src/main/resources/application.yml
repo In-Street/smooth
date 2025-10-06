@@ -1,0 +1,24 @@
+server:
+  port: 9091
+spring:
+  application.name: mq
+  profiles.active: dev
+
+  #在实现了 implements WebMvcConfigurer接口时，此配置是无效的
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group:  self-rocket-producer-group
+    send-message-timeout: 3000
+    retry-times-when-send-failed: 2
+  consumer:
+    group: self-rocket-consumer-group
