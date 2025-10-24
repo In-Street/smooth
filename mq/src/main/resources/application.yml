@@ -20,5 +20,7 @@ rocketmq:
     group:  self-rocket-producer-group
     send-message-timeout: 3000
     retry-times-when-send-failed: 2
+    enable-msg-trace: true  # 开启消息轨迹
+    customized-trace-topic: RMQ_SYS_TRACE_TOPIC
   consumer:
     group: self-rocket-consumer-group

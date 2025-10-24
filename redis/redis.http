@@ -1,0 +1,24 @@
+###
+GET {{url}}/pubSub/saveData
+Accept: */*
+Cache-Control: no-cache
+
+###
+GET {{url}}/pubSub/getData?key=key3
+Accept: */*
+Cache-Control: no-cache
+
+### 发送消息
+###
+POST {{url}}/pubSub/sendMsg
+Accept: */*
+Cache-Control: no-cache
+Content-Type:  application/json
+
+{
+  "topic": "channelTopic",
+  "msg": {
+    "id": 1000,
+    "username": "一首歌的时间"
+  }
+}
