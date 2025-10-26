@@ -1,15 +1,13 @@
 package com.smooth.redis.config;
 
-import com.smooth.redis.service.MainMsgListener;
-import com.smooth.redis.service.MsgListener;
+import com.smooth.redis.listeners.MainMsgListener;
+import com.smooth.redis.listeners.MsgListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.RedisSerializer;
 

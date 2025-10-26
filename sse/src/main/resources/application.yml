@@ -1,0 +1,29 @@
+server:
+  port: 9093
+spring:
+  application.name: sse
+  profiles.active: dev
+
+  #在实现了 implements WebMvcConfigurer接口时，此配置是无效的
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      username:
+      lettuce:
+        pool:
+          max-active: 300
+          max-idle: 100
+          max-wait: -1
+          min-idle: 20
+

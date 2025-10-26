@@ -33,4 +33,9 @@ public class PubSubController {
         pubSubService.sendMessage(req.getTopic(),req.getMsg());
     }
 
+    @GetMapping("/schedulePoolTest")
+    public void schedulePoolTest(){
+        pubSubService.schedulePoolTest();
+    }
+
 }

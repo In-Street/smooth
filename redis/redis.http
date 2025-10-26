@@ -22,3 +22,8 @@ Content-Type:  application/json
     "username": "一首歌的时间"
   }
 }
+
+###
+GET {{url}}/pubSub/schedulePoolTest
+Accept: */*
+Cache-Control: no-cache
