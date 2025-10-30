@@ -22,6 +22,6 @@ public class MsgService {
         //业务逻辑：会话、消息入库
 
         //发送消息
-        sseService.sendMsg(req.getReceiverId(), req.getContent());
+        sseService.sendMsg(req.getContent(),req.getReceiverId());
     }
 }

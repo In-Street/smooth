@@ -1,4 +1,4 @@
-package com.smooth.sse.config;
+package com.smooth.sse.controller;
 
 /**
  *
@@ -11,6 +11,7 @@ import com.smooth.sse.service.MsgService;
 import com.smooth.sse.service.SseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 
 @RestController
@@ -21,9 +22,9 @@ public class SseController {
     private final SseService sseService;
     private final MsgService msgService;
 
-    @GetMapping("/createConnection.{clientId}")
-    public void createConnection(@PathVariable Long clientId){
-        sseService.createConnection(clientId);
+    @GetMapping("/createConnection/{clientId}")
+    public SseEmitter createConnection(@PathVariable Long clientId){
+        return sseService.createConnection(clientId);
     }
     
     

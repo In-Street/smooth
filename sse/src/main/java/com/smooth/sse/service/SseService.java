@@ -52,7 +52,7 @@ public class SseService {
         }
     }
 
-    public void createConnection(Long clientId) {
+    public SseEmitter createConnection(Long clientId) {
 
         // 创建SseEmitter（设置30分钟超时）
         SseEmitter sseEmitter = new SseEmitter(30 * 1000L);
@@ -94,10 +94,10 @@ public class SseService {
             sseEmitter.completeWithError(e);
             cleanup(clientId, renewTask);
         }
-
+        return sseEmitter;
     }
 
-    public void sendMsg(Long clientId, String msg) {
+    public void sendMsgBasic(Long clientId, String msg) {
         SseEmitter sseEmitter = localEmitterMap.get(clientId);
         if (Objects.isNull(sseEmitter)) {
             return;
@@ -111,11 +111,11 @@ public class SseService {
         }
     }
 
-    public void handlerMsg(String msg, Long clientId) {
+    public void sendMsg(String msg, Long clientId) {
 
         String nodeId = stringRedisTemplate.opsForValue().get(NODE_KEY + clientId);
         if (NODE_ID.equals(nodeId)) {
-            sendMsg(clientId, msg);
+            sendMsgBasic(clientId, msg);
             return;
         }
         SendMessageParams sendMessageParams = new SendMessageParams();

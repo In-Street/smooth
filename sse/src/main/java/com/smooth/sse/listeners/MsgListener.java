@@ -28,7 +28,7 @@ public class MsgListener implements MessageListener {
 
         String messageStr = new String(message.getBody(), StandardCharsets.UTF_8);
         SendMessageParams params = JSONObject.parseObject(messageStr, SendMessageParams.class);
-        log.debug("Pub/Sub 消息处理 message:{}", params);
-        sseService.handlerMsg(params.getContent(), params.getReceiverId());
+        log.info("Pub/Sub 消息处理 message:{}", params);
+        sseService.sendMsgBasic(params.getReceiverId(),params.getContent());
     }
 }

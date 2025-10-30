@@ -18,7 +18,7 @@
 
     <springProfile name="dev">
         <logger name="com.magic.mq" level="debug"/>
-        <root level="debug">
+        <root level="info">
             <appender-ref ref="CONSOLE" />
 <!--            <appender-ref ref="FILE" />-->
         </root>

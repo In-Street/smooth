@@ -1,0 +1,15 @@
+###
+GET http://localhost:9093/sse/createConnection/1001
+Accept: */*
+Cache-Control: no-cache
+
+### 发送消息
+POST http://localhost:9193/sse/sendMsg
+Accept: */*
+Cache-Control: no-cache
+Content-Type:  application/json
+
+{
+    "receiverId": 1001,
+    "content": "一首歌的时间D"
+}

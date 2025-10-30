@@ -1,5 +1,10 @@
 server:
   port: 9093
+  servlet:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
 spring:
   application.name: sse
   profiles.active: dev
