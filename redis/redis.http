@@ -9,7 +9,6 @@ Accept: */*
 Cache-Control: no-cache
 
 ### 发送消息
-###
 POST {{url}}/pubSub/sendMsg
 Accept: */*
 Cache-Control: no-cache
@@ -23,7 +22,24 @@ Content-Type:  application/json
   }
 }
 
-###
-GET {{url}}/pubSub/schedulePoolTest
+### stream 生产消息
+POST {{url}}/stream/produce?streamKey=stream-v2
+Accept: */*
+Cache-Control: no-cache
+Content-Type:  application/json
+
+{
+  "id": 2907,
+  "username": "taylor swift",
+  "type": "vip"
+}
+
+### stream 消费一条 【group:consumer:  、 consumer-a 】【  group:b:consumer:   、 consumer-b】
+GET {{url}}/stream/consume?groupName=group:consumer:&consumerName=consumer-a
+Accept: */*
+Cache-Control: no-cache
+
+### 读取pending list
+GET {{url}}/stream/getPendingList?groupName=group:b:consumer:&consumerName=consumer-b
 Accept: */*
 Cache-Control: no-cache

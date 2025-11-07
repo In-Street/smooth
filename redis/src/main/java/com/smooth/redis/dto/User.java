@@ -1,9 +1,6 @@
 package com.smooth.redis.dto;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -15,6 +12,7 @@ import java.io.Serializable;
  **/
 @Getter
 @Setter
+@NoArgsConstructor
 @ToString
 @Accessors(chain = true)
 public class User implements Serializable {
@@ -22,6 +20,8 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 4177929567394707863L;
 
+
     private Integer id;
     private String username;
+    private String type;
 }

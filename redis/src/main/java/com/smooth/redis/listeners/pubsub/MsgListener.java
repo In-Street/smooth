@@ -1,5 +1,7 @@
-package com.smooth.redis.listeners;
+package com.smooth.redis.listeners.pubsub;
 
+import com.alibaba.fastjson2.JSONObject;
+import com.smooth.redis.dto.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 @Slf4j
-public class MainMsgListener implements MessageListener {
+public class MsgListener implements MessageListener {
     @Override
     public void onMessage(Message message, byte[] pattern) {
 
@@ -23,6 +25,9 @@ public class MainMsgListener implements MessageListener {
         String bodyString = new String(body);
 
         log.info("channelString: {} , bodyString:{}", channelString, bodyString);
+
+        User user = JSONObject.parseObject(bodyString, User.class);
+        log.info("user: {}", user);
 
     }
 }
