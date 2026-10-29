@@ -127,7 +127,8 @@ public class StreamService {
                 }
 
             }
-            MapRecord<String, Object, Object> record = records.getFirst();
+            // MapRecord<String, Object, Object> record = records.getFirst();
+            MapRecord<String, Object, Object> record = CollectionUtils.firstElement(records);
             User user = JSONObject.parseObject(record.getValue().get("payload").toString(), User.class);
             RecordId recordId = record.getId();
             log.info("从Pending List 中消费消息，msgId: {} , user: {}", recordId, user);

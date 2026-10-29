@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: interview
+
+  profiles:
+    active: dev
+
+#  config:
+#    import:
+#      - optional:classpath:application-${spring.profiles.active}.yaml # 加载【本地】配置
+#      - optional:nacos:application-common.yaml
+#      - optional:nacos:${spring.application.name}.yaml # 加载【Nacos】的配置
+#      - optional:nacos:data-source.yaml # 加载【Nacos】的配置
+
+server:
+  port: 48092
+
+--- #################### 宇擎相关配置 ####################
+
+smooth:
+  info:
+    base-package: com.smooth.interview
